@@ -1,4 +1,4 @@
-<div class="center-container" *ngIf="!showResults">
+<div class="center-container" style="border: 2px solid black; width: 50%; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;" *ngIf="!showResults">
 <div *ngFor="let question of questions; let i = index">
   <h3>{{ i + 1 }}) {{ question.questionText }}</h3>
   
@@ -33,4 +33,7 @@
     <li>Actual Marks: <span>{{ actualMarks }}</span></li>
     <li>Percentage: <span>{{ percentage }}%</span></li>
   </ol>
+  <p style="color: red; font-size: 16px; text-align: center; margin-top: 40px;">
+    <strong>Note:</strong> To revisit the questions, please refresh the page.
+</p>
 </div>
