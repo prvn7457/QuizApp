@@ -1,0 +1,36 @@
+<div class="center-container" *ngIf="!showResults">
+<div *ngFor="let question of questions; let i = index">
+  <h3>{{ i + 1 }}) {{ question.questionText }}</h3>
+  
+  <div *ngIf="question.questionType === 'Multiselect'">
+    <label *ngFor="let option of question.options">
+      <input type="checkbox" [name]="'question' + question.id" [value]="option.opId"> {{ option.options }}
+    </label>
+  </div>
+
+  <div *ngIf="question.questionType === 'boolean' || question.questionType === 'Radio'">
+    <label *ngFor="let option of question.options">
+      <input type="radio" [name]="'question' + question.id" [value]="option.opId"> {{ option.options }}
+    </label>
+  </div>
+
+  <div *ngIf="question.questionType === 'Dropdown'">
+    <select [name]="'question' + question.id">
+      <option value="">---Select---</option> <!-- Default option -->
+      <option *ngFor="let option of question.options" [value]="option.opId">{{ option.options }}</option>
+    </select>
+  </div>
+</div>
+<button style="margin-top : 9px;color: white;background-color: green;" (click)="onSubmit()" >Submit</button>
+</div>
+
+<div *ngIf="showResults" style="border: 2px solid black; width: 50%; margin: 0 auto; padding: 20px; font-family: Arial, sans-serif;">
+  <h3 style="color: red; font-size: 22px; text-align: center;text-decoration: underline;">Results</h3>
+  <ol style="color: red; font-size: 18px;">
+    <li>Total Number of Questions: <span>{{ totalQuestions }}</span></li>
+    <li>Total Number of Correct Questions: <span>{{ correctQuestions }}</span></li>
+    <li>Total Marks: <span>20</span></li>
+    <li>Actual Marks: <span>{{ actualMarks }}</span></li>
+    <li>Percentage: <span>{{ percentage }}%</span></li>
+  </ol>
+</div>

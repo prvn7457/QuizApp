@@ -1,0 +1,13 @@
+.center-container {
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 80%; // Adjust as needed
+    text-align: center;
+  }
+  
